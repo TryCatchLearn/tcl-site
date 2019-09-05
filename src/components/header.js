@@ -1,5 +1,12 @@
 import { StaticQuery, graphql, Link } from "gatsby"
 import React from "react"
+import logo from '../images/tcl-logo-crop.png';
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap"
 
 const Header = () => (
   <StaticQuery
@@ -8,7 +15,7 @@ const Header = () => (
         wordpressSiteMetadata {
           name
         }
-        wordpressWpApiMenusMenusItems(name: { eq: "Menu 1" }) {
+        wordpressWpApiMenusMenusItems(name: { eq: "CourseMenu" }) {
           items {
             title
             object_slug
@@ -17,50 +24,30 @@ const Header = () => (
       }
     `}
     render={data => (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-            display: `flex`,
-            justifyContent: `space-between`,
-            alignItems: `center`,
-          }}
-        >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              {data.wordpressSiteMetadata.name}
-            </Link>
-          </h1>
-          <ul style={{ listStyle: `none`, display: `flex`, margin: 0 }}>
-            {data.wordpressWpApiMenusMenusItems.items.map(item => (
-              <li key={item.object_slug} style={{ margin: `0 10px` }}>
-                <Link
-                  to={`/${item.object_slug}`}
-                  style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    fontFamily: `sans-serif`,
-                  }}
+      <header className={"header"}>
+        <Navbar expand="lg">
+          <Container>
+            <Navbar.Brand as={Link} to={"/"}>
+              <img src={logo} alt="logo" style={{maxHeight: 50}}/>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                <Nav.Link
+                  as={Link}
+                  to={`/blog`}
                 >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  Blog
+                </Nav.Link>
+                <NavDropdown title="Courses" id="basic-nav-dropdown">
+                  {data.wordpressWpApiMenusMenusItems.items.map(item => (
+                    <NavDropdown.Item as={Link} to={`/course/${item.object_slug}`} key={item.object_slug}>{item.title}</NavDropdown.Item>
+                  ))}
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </header>
     )}
   />

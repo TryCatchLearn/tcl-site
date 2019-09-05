@@ -25,7 +25,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/tcl.ico`, // This path is relative to the root of the site.
       },
     },
     {
@@ -36,13 +36,13 @@ module.exports = {
         protocol: 'http',
         hostingWPCOM: false,
         useACF: true,
-        acfOptionPageIds: [],
+        // acfOptionPageIds: [],
         verboseOutput: false,
         perPage: 100,
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'http://159.203.190.55:5004',
-          replacementUrl: 'http://localhost:8000'
-        },
+        // searchAndReplaceContentUrls: {
+        //   sourceUrl: 'http://159.203.190.55:5004',
+        //   replacementUrl: 'http://localhost:8000'
+        // },
         concurrentRequests: 10,
         _includedRoutes: [
           '**/categories',
@@ -58,7 +58,16 @@ module.exports = {
         excludedRoutes: [],
         normalizer: function({entities}) {
           return entities
-        }
+        },
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `159.203.190.55:5004`,
+              protocol: `http`
+            }
+          }
+        ]
       }
     },
     'gatsby-plugin-sitemap'

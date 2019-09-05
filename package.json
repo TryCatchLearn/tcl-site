@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
     "gatsby-plugin-manifest": "^2.2.6",
@@ -15,15 +17,17 @@
     "gatsby-source-filesystem": "^2.1.11",
     "gatsby-source-wordpress": "^3.1.26",
     "gatsby-transformer-sharp": "^2.2.7",
+    "gatsby-wordpress-inline-images": "^1.0.0",
+    "lodash": "^4.17.15",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1"
   },
-  "devDependencies": {
-    "prettier": "^1.18.2"
-  },
+  "devDependencies": {},
   "keywords": [
     "gatsby"
   ],

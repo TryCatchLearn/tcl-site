@@ -667,7 +667,7 @@ section.hero .continue i {
 * ==========================================================
 */
 section.featured-posts .row:nth-of-type(odd) .text {
-  background: #fafafa;
+  /*background: #fafafa;*/
 }
 
 section.featured-posts .row:last-of-type {
@@ -1053,7 +1053,7 @@ section.gallery .overlay i {
 */
 footer.main-footer {
   background: #0e0e0e;
-  padding: 100px 0 0;
+  padding: 50px 0 0;
   color: #fff;
 }
 
@@ -1114,7 +1114,7 @@ footer.main-footer .latest-posts .date {
 
 footer.main-footer .copyrights {
   background: #090909;
-  margin-top: 100px;
+  margin-top: 10px;
   padding: 20px 0;
   font-size: 0.9em;
 }
@@ -2583,4 +2583,13 @@ a.text-light:focus, a.text-light:hover {
 
 a.text-dark:focus, a.text-dark:hover {
   color: #1d2124 !important;
+}
+
+.category span {
+  color: #999;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px
 }
