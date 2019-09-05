@@ -31,7 +31,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
                   <div className="post-meta d-flex justify-content-between">
                     <div className="category">
                       {data.wordpressPost.categories && data.wordpressPost.categories.map((category) => (
-                        <Link to={`/category/${category.name}`} key={category.id} href="#">{category.name}</Link>
+                        <Link to={`/category/${category.name}`} key={category.id} >{category.name}</Link>
                       ))}
                     </div>
                   </div>
